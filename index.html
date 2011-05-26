@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="style.css" />
+	<title>dropdownyy demo</title>
+	<style>
+	  html { font-family: sans-serif; }
+	  .choser { 
+	    float: left; 
+	    margin-right: 30px;
+	  }
+	</style>
+</head>
+<body>
+  <h1>Dropdowny demo</h1>
+	  <div class="choser">
+      <div class="title">Choose form</div>
+      <dl class="dropdowny">
+        <dt><a href="#"><span>form 1</span></a></dt>
+        <dd>
+          <ul>
+            <li id="form-1"><a href="#">form 1</a></li>
+            <li id="form-2"><a href="#">form 2</a></li>
+            <li id="form-3"><a href="#">form 3</a></li>
+            <li id="form-4"><a href="#">form 4</a></li>
+            <li id="form-5"><a href="#">form 5</a></li>
+            <li id="form-6"><a href="#">form 6</a></li>
+            <li id="form-7"><a href="#">form 7</a></li>
+            <li id="form-8"><a href="#">form 8</a></li>
+            <li class="last" id="sjalvkansla"><a href="#">form last!</a></li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+    <div class="choser">
+      <div class="title">Choose form</div>
+      <dl class="dropdowny">
+        <dt><a href="#"><span>form 1</span></a></dt>
+        <dd>
+          <ul>
+            <li id="form-1"><a href="#">form 1</a></li>
+            <li id="form-2"><a href="#">form 2</a></li>
+            <li id="form-3"><a href="#">form 3</a></li>
+            <li id="form-4"><a href="#">form 4</a></li>
+            <li id="form-5"><a href="#">form 5</a></li>
+            <li id="form-6"><a href="#">form 6</a></li>
+            <li id="form-7"><a href="#">form 7</a></li>
+            <li id="form-8"><a href="#">form 8</a></li>
+            <li class="last" id="sjalvkansla"><a href="#">form last!</a></li>
+          </ul>
+        </dd>
+      </dl>
+    </div>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+  
+  <script type="text/javascript">
+  		  /** controls the dropdownys **/
+		    $(".dropdowny dt a").click(function() {
+		      if ($(this).parent().parent().find("dd ul").hasClass("activated")) {
+		        $(".dropdowny dd ul").hide(); 
+            $(".activated").removeClass("activated")
+		      } else {
+  		      $(".activated").removeClass("activated")
+  		      $(".dropdowny dd ul").hide();
+            $(this).parent().parent().find("dd ul").toggle();
+            $(this).parent().parent().find("dd ul").addClass("activated")
+		      }
+        });
+
+        $(".dropdowny dd ul li a").click(function() {
+            var text = $(this).html();
+            $(this).parent().parent().parent().parent().find("dt a span").html(text); //oh so pretty the traversing is
+            $(".dropdowny dd ul").hide();
+            //the id field of parent has the control hook, although I'd use a hrefs if you don't want to ajax
+            //alert($(this).parent().attr('id'))
+        });
+
+        $(document).bind('click', function(e) {
+            var $clicked = $(e.target);
+            if (! $clicked.parents().hasClass("dropdowny")) {
+              $(".dropdowny dd ul").hide(); 
+              $(".activated").removeClass("activated")
+            }
+        });
+	</script>
+  
+</body>
