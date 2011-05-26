@@ -21,7 +21,7 @@
   height: 30px;
 }
 .dropdowny dt a {
-  background: #428cb8; 
+  background: #428cb8 url('downarrow.png') 95% no-repeat; 
   width: 236px;
 }
 .dropdowny dt a span {
