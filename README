@@ -1,1 +1,4 @@
 A stylable dropdown box, extracted from another project so it's a bit messy atm.
+
+
+All you need to run this is the contents of the dropdowny folder and jquery 1.3+ (tested up to 1.6.1).
